@@ -47,6 +47,26 @@ Brauzerda oching: http://127.0.0.1:8000
 
 Mini App tugmasi faqat `WEBAPP_URL` `https://` bilan boshlansa chiqadi (Telegram talabi). Lokalda `http://127.0.0.1:8000` ni brauzerda oching. Productionda HTTPS domen qo‘ying va BotFather da domain belgilang.
 
+## Railway deploy (Railpack)
+
+Loyihada `railpack.json` va `Procfile` bor — start command:
+
+```
+uvicorn app.main:app --host 0.0.0.0 --port $PORT
+```
+
+Railway da **Variables** qo‘ying:
+
+```
+OPENROUTER_API_KEY=sk-or-...
+OPENROUTER_MODEL=openrouter/free
+BOT_TOKEN=...
+BOT_MODE=polling
+WEBAPP_URL=https://your-app.up.railway.app
+```
+
+`WEBAPP_URL` ni Railway bergan HTTPS domeniga qo‘ying (Telegram Web App uchun shart).
+
 ## Production webhook
 
 ```
