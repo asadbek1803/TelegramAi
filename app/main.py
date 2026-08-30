@@ -81,8 +81,9 @@ app.include_router(chat_api)
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request) -> HTMLResponse:
     return templates.TemplateResponse(
+        request,
         "index.html",
-        {"request": request, "model": settings.openrouter_model},
+        {"model": settings.openrouter_model},
     )
 
 
